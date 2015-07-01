@@ -110,7 +110,7 @@ public class StopperActivity extends Activity {
             clockHandler.cancel(true);
             minutes.setText(INITIAL_STATE);
             startBtn.setText(START_BTN);
-            minutes.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 400);
+            minutes.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 350);
             seconds.setVisibility(View.VISIBLE);
             separator.setVisibility(View.VISIBLE);
         }
