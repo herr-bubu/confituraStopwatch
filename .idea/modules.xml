@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ConfituraStopper.iml" filepath="$PROJECT_DIR$/ConfituraStopper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/confitura-stopper/confitura-stopper.iml" filepath="$PROJECT_DIR$/confitura-stopper/confitura-stopper.iml" />
+    </modules>
+  </component>
+</project>
