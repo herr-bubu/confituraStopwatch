@@ -22,10 +22,10 @@ public class StopperActivity extends Activity {
     private static final String START_BTN = "Start";
     private static final String STOP_BTN = "Stop";
 
-    private static final int TIME_LIMIT = 45;
+    private static final int TIME_LIMIT = 2700;
     private Button startBtn;
     private boolean isStarted;
-    private int passedSeconds = 45;
+    private int passedSeconds = 2700;
     private ScheduledFuture handler;
     private ScheduledFuture clockHandler;
     private TextView separator;
@@ -40,7 +40,7 @@ public class StopperActivity extends Activity {
         minutes = (TextView) findViewById(R.id.minutes);
         seconds = (TextView) findViewById(R.id.seconds);
 
-        final ScheduledExecutorService service = Executors.newScheduledThreadPool(3);
+        final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
 
         startBtn = (Button) findViewById(R.id.start);
         startBtn.setOnClickListener(new View.OnClickListener() {
@@ -86,12 +86,12 @@ public class StopperActivity extends Activity {
                 separator.setVisibility(View.INVISIBLE);
             }
 
-            if ((msg.what % 5) == 0 && msg.what >= 10) {
+            if ((msg.what % 300) == 0 && msg.what >= 600) {
                 Log.d("Clock", "Minutes left: " + msg.what);
-                minutes.setText(Integer.toString(msg.what));
-            } else if (msg.what < 10 && msg.what >= 5) {
-                minutes.setText(Integer.toString(msg.what));
-            } else if (msg.what < 5) {
+                minutes.setText(Integer.toString(msg.what/60));
+            } else if (msg.what < 600 && msg.what >= 300) {
+                minutes.setText(Integer.toString(msg.what/60));
+            } else if (msg.what < 300) {
                 minutes.setText("Pytania");
                 minutes.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 350);
                 separator.setVisibility(View.INVISIBLE);
@@ -105,7 +105,7 @@ public class StopperActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
             isStarted = false;
-            passedSeconds = 45;
+            passedSeconds = 2700;
             handler.cancel(true);
             clockHandler.cancel(true);
             minutes.setText(INITIAL_STATE);
