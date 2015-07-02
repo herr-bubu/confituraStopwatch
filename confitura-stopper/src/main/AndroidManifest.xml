@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.softwaremill.confitura.stopper" >
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <supports-screens android:largeScreens="true"
         android:normalScreens="false"
         android:smallScreens="false"
